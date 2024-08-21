@@ -36,6 +36,6 @@ We welcome contributions to improve this project! To contribute, please follow t
 
 2. **Clone your forked repository**:
    ```bash
-   git clone https://github.com/yourusername/ecommerce-website.git
-   cd ecommerce-website
+   git clone https://github.com/Ayush-udy/EcommerceApp.git
+   cd EcommerceApp
 
