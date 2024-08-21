@@ -50,9 +50,8 @@ const handleCreate= async(e)=>{
     const {data}= await axios.post(`${import.meta.env.VITE_REACT_APP_API}/api/v1/product/create-product`,
         productData)
     if(data?.success){
-      toast.error(data?.message)
-    }else {
-      
+      toast.success(data?.message)
+    }else {      
       toast.success("Product created successfully")
       navigate('/dashboard/admin/products')
     }

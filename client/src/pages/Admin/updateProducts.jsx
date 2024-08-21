@@ -31,7 +31,7 @@ const UpdateProducts = () => {
             setPrice(data.product.price)
             setQuantity(data.product.quantity)
             setShipping(data.product.shipping)
-            setCategory(data.product.category)
+            setCategory(data.product.category._id)
             setPhoto(data.product.photo)
             setId(data.product._id)
 
@@ -76,13 +76,15 @@ const UpdateProducts = () => {
       productData.append("quantity", quantity)
       photo && productData.append("photo", photo)
       productData.append("category", category)
-      const {data}= await axios.post(
+      const {data}= await axios.put(
         `${import.meta.env.VITE_REACT_APP_API}/api/v1/product/update-product/${id}`,
           productData)
+        
       if(data?.success){
         toast.error(data?.message)
       }else {
-        toast.success("Product created successfully")
+        toast.success("Product Updated successfully")
+        navigate('/dashboard/admin/products')
       }
   }
   catch(error){
@@ -90,7 +92,21 @@ const UpdateProducts = () => {
     toast.error('Something was wrong')
   }
   }
-
+  //Delete Product
+  const handleDelete= async()=>{
+    try{
+      let answer= window.prompt("Are you sure you want to delete product ?")
+      if(!answer) return 
+      
+      const {data}= await axios.delete(`${import.meta.env.VITE_REACT_APP_API}/api/v1/product/delete-product/${id}`)
+      toast.success('Product Deleted Successfully')
+      navigate('/dashboard/admin/products')
+    }
+    catch(err){
+      console.log(err);
+      toast.error('Something went wrong')
+    }
+  }
   return (
     <Layout title={'Dashboard-Create Product'}>
       <div className="container-fluid m-3 p-3">
@@ -105,7 +121,7 @@ const UpdateProducts = () => {
               size="large"
               showSearch
               className="form-select mb-3" onChange={(value)=>{setCategory(value)}}
-              value= {category.name}
+              value= {category}
               >
                 {categories?.map(c => (
                   <Option key={c._id} value= {c._id}>{c.name}</Option>
@@ -184,6 +200,11 @@ const UpdateProducts = () => {
                 <div className="mb-3">
                   <button className="btn btn-primary" type="submit" onClick={handleUpdate}> 
                         Update Product
+                    </button>
+                </div>
+                <div className="mb-3">
+                  <button className="btn btn-danger" type="submit" onClick={handleDelete}> 
+                        Delete Product
                     </button>
                 </div>
             </div>

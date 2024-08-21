@@ -5,7 +5,15 @@ const {
         getSingleProductController, 
         productPhotoController, 
         deleteProductController,
-        updateProductController
+        updateProductController,
+        productFiltersController,
+        productCountController,
+        productListController,
+        searchController,
+        relatedProductController,
+        productCategoryController,
+        braintreeTokenController,
+        brainTreePaymentController
     } = require( '../controllers/productController')
 
 const {isAdmin, requiresSignIn} = require('../middlewares/authMiddleware')
@@ -16,8 +24,8 @@ const router= express.Router()
 //routes
 router.post('/create-product', requiresSignIn, isAdmin,formidable(), createProductController)
 
-//routes
-router.post('/update-product/:pid', requiresSignIn, isAdmin,formidable(), updateProductController)
+// Update route
+router.put('/update-product/:pid', requiresSignIn, isAdmin,formidable(), updateProductController)
 
 
 // Get Products
@@ -30,7 +38,32 @@ router.get('/get-product/:slug', getSingleProductController)
 router.get('/product-photo/:pid', productPhotoController)
 
 //delete product
-router.get('/product/:pid', deleteProductController);
+router.delete('/delete-product/:pid', deleteProductController);
+
+//Filter Product
+router.get('/product-filters', productFiltersController)
+
+//product count
+router.get('/product-count', productCountController);
+
+//Product per page 
+router.get('/product-list/:page', productListController)
+
+//Search product 
+router.get('/search/:keyword', searchController)
+
+//Similar Product
+router.get('/related-product/:pid/:cid', relatedProductController)
+
+//category wise product
+router.get('/product-category/:slug', productCategoryController)
+
+//Payments routes
+//token
+router.get('/braintree/token', braintreeTokenController)
+
+//Payments
+router.post('/braintree/payment', requiresSignIn, brainTreePaymentController)
 
 
 module.exports= router

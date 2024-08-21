@@ -52,3 +52,12 @@
         rgb(0,2,28)
     );
 }
+
+.forgot-btn {
+  background-color: #434343a4 !important;
+  border: 0 !important;
+}
+
+.forgot-btn:hover {
+  color: white !important;
+}
