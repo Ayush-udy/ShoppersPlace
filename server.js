@@ -7,6 +7,8 @@ const authRoutes= require('./routes/authRoutes')
 const categoryRoutes= require('./routes/categoryRoutes')
 const productRoutes= require('./routes/productRoutes')
 const cors= require('cors')
+const path= require('path')
+
 
 
 //Config Env
@@ -29,6 +31,7 @@ app.use('/api/v1/category', categoryRoutes);
 app.use('/api/v1/product', productRoutes);
 
 
+
 //rest api
 app.get('/', (req, res)=>{
     res.send("<h1>Welcome to ShoppersPlace App!</h1>")
@@ -36,6 +39,13 @@ app.get('/', (req, res)=>{
 
 //Port 
 const PORT= process.env.PORT|| 8080;
+
+//Static files
+app.use(express.static(path.join(__dirname,'./client/dist' )))
+
+app.get("*", function(req, res){
+    res.sendFile(path.join(__dirname, './client/dist/index.html'))
+})
 
 //run listen
 app.listen(PORT, () =>{
