@@ -31,7 +31,7 @@ app.use('/api/v1/product', productRoutes);
 
 //rest api
 app.get('/', (req, res)=>{
-    res.send("<h1>Welcome to my Price Comparison App!</h1>")
+    res.send("<h1>Welcome to ShoppersPlace App!</h1>")
 })
 
 //Port 
