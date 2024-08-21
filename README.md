@@ -1,31 +1,3 @@
-﻿#ShopersPlace Website
-
-## Overview
-This is a full-featured eCommerce website built using the MERN stack (MongoDB, Express.js, React, Node.js). The website allows users to browse products, add them to the cart, and make secure payments. It also includes user authentication and authorization, product management, and order tracking.
-
-## Features
-- User Authentication and Authorization
-- Product Listing and Search
-- Shopping Cart Functionality
-- Secure Payment Integration with Braintree
-- Order Management and Tracking
-- Responsive Design with Bootstrap CSS
-
-## Technologies Used
-- **Frontend**: React, Vite, Bootstrap
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Authentication**: JWT (JSON Web Tokens)
-- **Payment Gateway**: Braintree
-- **HTTP Client**: Axios
-
-## Installation
-
-### Prerequisites
-- Node.js
-- MongoDB
-- Braintree Account
-
 # ShoppersPlace Website
 
 ## Overview
@@ -37,10 +9,10 @@ This is a full-featured eCommerce website built using the MERN stack (MongoDB, E
 - Shopping Cart Functionality
 - Secure Payment Integration with Braintree
 - Order Management and Tracking
-- Responsive Design with Tailwind CSS
+- Responsive Design with Bootstrap
 
 ## Technologies Used
-- **Frontend**: React, Vite, Tailwind CSS
+- **Frontend**: React, Vite, Bootstrap CSS
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Authentication**: JWT (JSON Web Tokens)
